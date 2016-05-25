@@ -3,9 +3,7 @@ package jp.co.oec_o.oec0155.myjihankia;
 import android.content.ClipData;
 import android.graphics.Color;
 import android.media.MediaPlayer;
-import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.view.DragEvent;
 import android.view.View;
@@ -15,6 +13,7 @@ import android.widget.TextView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import butterknife.OnTouch;
 
 public class MainActivity extends AppCompatActivity implements View.OnDragListener {
@@ -71,6 +70,7 @@ public class MainActivity extends AppCompatActivity implements View.OnDragListen
     MediaPlayer sound2;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,7 +78,6 @@ public class MainActivity extends AppCompatActivity implements View.OnDragListen
         ButterKnife.bind(this);
         tonyuguti.setOnDragListener(this);
         syokiSyori();
-
 
 
     }
@@ -123,6 +122,7 @@ public class MainActivity extends AppCompatActivity implements View.OnDragListen
         img.startDrag(clipData, new View.DragShadowBuilder(img), (Object) img, 0);
         return true;
     }
+
     // 50円硬貨をタッチした時の処理。　ドラッグが開始される
     @OnTouch(R.id.okane50)
     public boolean touchOkane50(ImageView img) {
@@ -138,7 +138,6 @@ public class MainActivity extends AppCompatActivity implements View.OnDragListen
         img.startDrag(clipData, new View.DragShadowBuilder(img), (Object) img, 0);
         return true;
     }
-
 
 
     @Override
@@ -170,23 +169,47 @@ public class MainActivity extends AppCompatActivity implements View.OnDragListen
             button3On();
         }
     }
-        private void buttonOn() {
-            button.setEnabled(true);
-            button.setBackgroundColor(Color.MAGENTA);
-        }
-        private void button2On() {
-            button2.setEnabled(true);
-            button2.setBackgroundColor(Color.MAGENTA);
 
-        }
-        private void button3On() {
-            button3.setEnabled(true);
-            button3.setBackgroundColor(Color.MAGENTA);
-        }
+    private void buttonOn() {
+        button.setEnabled(true);
+        button.setBackgroundColor(Color.MAGENTA);
+    }
+
+    private void button2On() {
+        button2.setEnabled(true);
+        button2.setBackgroundColor(Color.MAGENTA);
+
+    }
+
+    private void button3On() {
+        button3.setEnabled(true);
+        button3.setBackgroundColor(Color.MAGENTA);
+    }
 
 
+    @OnClick(R.id.button)
+    public void onClick1() {
+    oturikingaku = goukeikingaku - kakaku1kingaku;
+    toridasiguti.setImageDrawable(syasin1.getDrawable());
+   oturihyoji.setText(String.valueOf(oturikingaku));
+        buttonAllOff();
+    }
 
+    @OnClick(R.id.button2)
+    public void onClick2() {
+    oturikingaku = goukeikingaku - kakaku2kingaku;
+    toridasiguti.setImageDrawable(syasin2.getDrawable());
+        oturihyoji.setText(String.valueOf(oturikingaku));
+        buttonAllOff();
+    }
 
+    @OnClick(R.id.button3)
+    public void onClick3() {
+    oturikingaku = goukeikingaku - kakaku3kingaku;
+    toridasiguti.setImageDrawable(syasin3.getDrawable());
+        oturihyoji.setText(String.valueOf(oturikingaku));
+        buttonAllOff();
+    }
 
 
 
