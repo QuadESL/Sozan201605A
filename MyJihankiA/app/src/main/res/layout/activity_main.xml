@@ -32,7 +32,7 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:id="@+id/syashin1"
+                    android:id="@+id/syasin1"
                     android:layout_gravity="center_horizontal"
                     android:layout_weight="7"
                     android:src="@drawable/kinoko2" />
@@ -70,7 +70,7 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:id="@+id/syashin2"
+                    android:id="@+id/syasin2"
                     android:layout_weight="7"
                     android:src="@drawable/kinoko" />
 
@@ -106,7 +106,7 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:id="@+id/syashin3"
+                    android:id="@+id/syasin3"
                     android:layout_gravity="center_horizontal"
                     android:layout_weight="7"
                     android:src="@drawable/kinoko3" />
@@ -162,7 +162,7 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:id="@+id/toridashiguti"
+                    android:id="@+id/toridasiguti"
                     android:layout_weight="8"
                     android:background="@android:color/black" />
             </LinearLayout>
@@ -190,7 +190,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:id="@+id/goukeihyouji"
+                    android:id="@+id/goukeihyoji"
                     android:layout_gravity="center_horizontal"
                     android:layout_weight="2"
                     android:background="@color/colorPrimary"
