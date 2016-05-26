@@ -70,7 +70,6 @@ public class MainActivity extends AppCompatActivity implements View.OnDragListen
     MediaPlayer sound2;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -145,7 +144,8 @@ public class MainActivity extends AppCompatActivity implements View.OnDragListen
         // ドロップした時
         if (event.getAction() == DragEvent.ACTION_DROP) {
             // ドロップした先が投入口だったら
-            if (v == tonyuguti) {
+            if (v == tonyuguti)
+            sound1.start(); {
                 // クリップデータを取り出して、投入金額変数に数字に変換してセットする
                 ClipData clipData = event.getClipData();
                 ClipData.Item item = clipData.getItemAt(0);
@@ -189,30 +189,42 @@ public class MainActivity extends AppCompatActivity implements View.OnDragListen
 
     @OnClick(R.id.button)
     public void onClick1() {
-    oturikingaku = goukeikingaku - kakaku1kingaku;
-    toridasiguti.setImageDrawable(syasin1.getDrawable());
-   oturihyoji.setText(String.valueOf(oturikingaku));
+        sound2.start();
+        oturikingaku = goukeikingaku - kakaku1kingaku;
+        toridasiguti.setImageDrawable(syasin1.getDrawable());
+        oturihyoji.setText(String.valueOf(oturikingaku));
         buttonAllOff();
     }
 
     @OnClick(R.id.button2)
     public void onClick2() {
-    oturikingaku = goukeikingaku - kakaku2kingaku;
-    toridasiguti.setImageDrawable(syasin2.getDrawable());
+        sound2.start();
+        oturikingaku = goukeikingaku - kakaku2kingaku;
+        toridasiguti.setImageDrawable(syasin2.getDrawable());
         oturihyoji.setText(String.valueOf(oturikingaku));
         buttonAllOff();
     }
 
     @OnClick(R.id.button3)
     public void onClick3() {
-    oturikingaku = goukeikingaku - kakaku3kingaku;
-    toridasiguti.setImageDrawable(syasin3.getDrawable());
+        sound2.start();
+        oturikingaku = goukeikingaku - kakaku3kingaku;
+        toridasiguti.setImageDrawable(syasin3.getDrawable());
         oturihyoji.setText(String.valueOf(oturikingaku));
         buttonAllOff();
     }
 
 
-
+    @OnClick(R.id.toridasiguti)
+    public void onClick() {
+        if(toridasiguti.getDrawable() != null) {
+            toridasiguti.setImageDrawable(null);
+            goukeikingaku = 0;
+            goukeihyoji.setText("");
+            oturikingaku = 0;
+            oturihyoji.setText("");
+        }
+    }
 
 
 
